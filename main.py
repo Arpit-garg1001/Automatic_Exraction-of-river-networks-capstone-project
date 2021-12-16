@@ -9,7 +9,7 @@ import skimage.color
 import skimage.filters
 from skimage import morphology
 import skimage
-menu = ['Simple thresholding','Otsu thresholding','Segmentation3']
+menu = ['Simple thresholding','Otsu thresholding']
 import base64
 
 # main_bg = "backgroundImg.jpeg"
