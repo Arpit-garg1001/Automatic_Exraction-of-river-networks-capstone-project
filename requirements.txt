@@ -1,4 +1,2 @@
-cv2
-PIL
-numpy
+opencv-python
 skimage
