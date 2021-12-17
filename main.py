@@ -3,16 +3,14 @@ import cv2
 from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
-import glob
 import skimage.io
 import skimage.color
 import skimage.filters
 from skimage import morphology
 import skimage
 from matplotlib import cm
-import time
+# import time
 menu = ['Simple thresholding','Otsu thresholding']
-import base64
 # import inference as inf
 
 # main_bg = "backgroundImg.jpeg"
@@ -51,7 +49,7 @@ if choice=='Simple thresholding':
 		with col1:
 			st.image(img_array,"Satellite Image")
 		
-		time.sleep(5) # Sleep for 5 seconds
+		# time.sleep(5) # Sleep for 5 seconds
 		# im = cv2.imread(img_array)
 		img=cv2.cvtColor(img_array,cv2.COLOR_BGR2RGB)
 		img = img/255.0
@@ -61,7 +59,7 @@ if choice=='Simple thresholding':
 		image=im_power_law_transformation
 		with col2:
 			st.image(image,"Enhanced Image")
-		time.sleep(5) # Sleep for 5 seconds
+		# time.sleep(5) # Sleep for 5 seconds
 		gray_image = skimage.color.rgb2gray(im_power_law_transformation)	
 		blurred_image = skimage.filters.gaussian(gray_image, sigma=1.0)
 		fig, ax = plt.subplots()
@@ -80,7 +78,7 @@ if choice=='Simple thresholding':
 		fig, ax = plt.subplots()
 		with col3:
 			st.image(selection,"Segmented Image")
-		time.sleep(5) # Sleep for 5 seconds
+		# time.sleep(5) # Sleep for 5 seconds
 		
 
 		#ClutterRemoval
@@ -108,7 +106,7 @@ elif choice=='Otsu thresholding':
 		img_array = np.array(image)
 		with col1:
 			st.image(img_array,"Satellite Image")
-		time.sleep(5) # Sleep for 5 seconds
+		# time.sleep(5) # Sleep for 5 seconds
 		# im = cv2.imread(img_array)
 		img=cv2.cvtColor(img_array,cv2.COLOR_BGR2RGB)
 		img = img/255.0
@@ -118,7 +116,7 @@ elif choice=='Otsu thresholding':
 		image=im_power_law_transformation
 		with col2:
 			st.image(image,"Enhanced Image")
-		time.sleep(5) # Sleep for 5 seconds
+		# time.sleep(5) # Sleep for 5 seconds
 		# path to input image is specified and
 		# image is loaded with imread command
 		  
@@ -138,7 +136,7 @@ elif choice=='Otsu thresholding':
 		# techniques applied to the input image  
 		with col3:
 			st.image(thresh1,"Segmented Image")
-		time.sleep(5) # Sleep for 5 seconds
+		# time.sleep(5) # Sleep for 5 seconds
 		se1 = cv2.getStructuringElement(cv2.MORPH_RECT, (5,5))
 		se2 = cv2.getStructuringElement(cv2.MORPH_RECT, (2,2))
 		mask = cv2.morphologyEx(thresh1, cv2.MORPH_CLOSE, se1)
@@ -156,7 +154,7 @@ elif choice=='Otsu thresholding':
 		# im.save('gfg_dummy_pic.png')
 		with open("segmented.png", "rb") as file1:
 			btn = st.download_button(label="Download Segmented Image",data=file1,file_name="otsu.png",mime="image/png")
-elif choice=='Segmentation3':
-	if immm is not None:
-		immg=Image.open(imm)
+# elif choice=='Segmentation3':
+# 	if immm is not None:
+# 		immg=Image.open(imm)
 		# inf.main(immg)
