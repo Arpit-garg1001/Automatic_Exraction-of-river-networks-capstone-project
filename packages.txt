@@ -1,1 +1,2 @@
-install libgl1
+update
+install ffmpeg libsm6 libxext6  -y
