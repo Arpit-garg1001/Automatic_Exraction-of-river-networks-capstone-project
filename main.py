@@ -54,8 +54,8 @@ if choice=='Simple thresholding':
 		img=cv2.cvtColor(img_array,cv2.COLOR_BGR2RGB)
 		img = img/255.0
 		im_power_law_transformation = cv2.pow(img,0.6)
-		cv2.waitKey(0)
-		cv2.waitKey(0)
+		# cv2.waitKey(0)
+		# cv2.waitKey(0)
 		image=im_power_law_transformation
 		with col2:
 			st.image(image,"Enhanced Image")
@@ -111,8 +111,8 @@ elif choice=='Otsu thresholding':
 		img=cv2.cvtColor(img_array,cv2.COLOR_BGR2RGB)
 		img = img/255.0
 		im_power_law_transformation = cv2.pow(img,0.6)
-		cv2.waitKey(0)
-		cv2.waitKey(0)
+		# cv2.waitKey(0)
+		# cv2.waitKey(0)
 		image=im_power_law_transformation
 		with col2:
 			st.image(image,"Enhanced Image")
