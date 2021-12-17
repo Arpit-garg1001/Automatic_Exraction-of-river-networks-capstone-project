@@ -9,8 +9,11 @@ import skimage.color
 import skimage.filters
 from skimage import morphology
 import skimage
+from matplotlib import cm
+import time
 menu = ['Simple thresholding','Otsu thresholding']
 import base64
+# import inference as inf
 
 # main_bg = "backgroundImg.jpeg"
 # main_bg_ext = "jpg"
@@ -46,7 +49,9 @@ if choice=='Simple thresholding':
 		image = Image.open(immm)
 		img_array = np.array(image)
 		with col1:
-			st.image(img_array)
+			st.image(img_array,"Satellite Image")
+		
+		time.sleep(5) # Sleep for 5 seconds
 		# im = cv2.imread(img_array)
 		img=cv2.cvtColor(img_array,cv2.COLOR_BGR2RGB)
 		img = img/255.0
@@ -55,7 +60,8 @@ if choice=='Simple thresholding':
 		cv2.waitKey(0)
 		image=im_power_law_transformation
 		with col2:
-			st.image(image)
+			st.image(image,"Enhanced Image")
+		time.sleep(5) # Sleep for 5 seconds
 		gray_image = skimage.color.rgb2gray(im_power_law_transformation)	
 		blurred_image = skimage.filters.gaussian(gray_image, sigma=1.0)
 		fig, ax = plt.subplots()
@@ -73,7 +79,9 @@ if choice=='Simple thresholding':
 		selection[binary_mask] = image[binary_mask]
 		fig, ax = plt.subplots()
 		with col3:
-			st.image(selection)
+			st.image(selection,"Segmented Image")
+		time.sleep(5) # Sleep for 5 seconds
+		
 
 		#ClutterRemoval
 		# read the image, grayscale it, binarize it, then remove small pixel clusters
@@ -87,7 +95,11 @@ if choice=='Simple thresholding':
 		# plot the result
 		plt.figure(figsize=(10,10))
 		with col4:
-			st.image(im)
+			st.image(im,"After Clutter Removal")
+		plt.imsave("segmented.png", im, cmap='Greys')
+		with open("segmented.png", "rb") as file1:
+			btn = st.download_button(label="Download Segmented Image",data=file1,file_name="thresholding.png",mime="image/png")
+
 elif choice=='Otsu thresholding':
 	if immm is not None:
 		col1, col2=st.columns(2)
@@ -95,7 +107,8 @@ elif choice=='Otsu thresholding':
 		image = Image.open(immm)
 		img_array = np.array(image)
 		with col1:
-			st.image(img_array)
+			st.image(img_array,"Satellite Image")
+		time.sleep(5) # Sleep for 5 seconds
 		# im = cv2.imread(img_array)
 		img=cv2.cvtColor(img_array,cv2.COLOR_BGR2RGB)
 		img = img/255.0
@@ -104,7 +117,8 @@ elif choice=='Otsu thresholding':
 		cv2.waitKey(0)
 		image=im_power_law_transformation
 		with col2:
-			st.image(image)
+			st.image(image,"Enhanced Image")
+		time.sleep(5) # Sleep for 5 seconds
 		# path to input image is specified and
 		# image is loaded with imread command
 		  
@@ -123,7 +137,8 @@ elif choice=='Otsu thresholding':
 		# with the corresponding thresholding         
 		# techniques applied to the input image  
 		with col3:
-			st.image(thresh1)
+			st.image(thresh1,"Segmented Image")
+		time.sleep(5) # Sleep for 5 seconds
 		se1 = cv2.getStructuringElement(cv2.MORPH_RECT, (5,5))
 		se2 = cv2.getStructuringElement(cv2.MORPH_RECT, (2,2))
 		mask = cv2.morphologyEx(thresh1, cv2.MORPH_CLOSE, se1)
@@ -131,10 +146,17 @@ elif choice=='Otsu thresholding':
 
 		mask = np.dstack([mask, mask, mask]) / 255
 		with col4:
-			st.image(mask)
-# elif choice=='Segmentation3':
-# 	inference.py --checkpoint_path checkpoints/cp.135.ckpt \
-#     --image_path sample_data/sentinel2_example.tif --save_path water_map.png 
-
-#     im = cv2.imread('save_path water_map.png')
-#     st.image(im)
+			st.image(mask,"After Clutter Removal")
+		# st.write(type(mask))
+		# st.write(mask.shape)
+		# im = Image.fromarray(np.uint8(cm.gist_earth(mask)*255))
+		plt.imsave("segmented.png", mask, cmap='Greys')
+		# im = Image.fromarray(mask)
+		# st.image(im)
+		# im.save('gfg_dummy_pic.png')
+		with open("segmented.png", "rb") as file1:
+			btn = st.download_button(label="Download Segmented Image",data=file1,file_name="otsu.png",mime="image/png")
+elif choice=='Segmentation3':
+	if immm is not None:
+		immg=Image.open(imm)
+		# inf.main(immg)
