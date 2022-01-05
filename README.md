@@ -18,9 +18,9 @@ User can select the type of segmentation
 Clutter Removal:-Clutter removal is a process in which small unwanted objects in the image are removed by using an area opening morphological operator. Per the image characteristics, a maximum pixel amount to be imputed. As a result, all objects having fewer than the selected number of pixels will be removed from the image.
 
 System Screenshots:-
-![image](https://user-images.githubusercontent.com/74719330/148254620-e6ecd224-ea73-4302-a925-c13fe2cade80.png)
+![1](https://user-images.githubusercontent.com/74719330/148256672-566ed875-967b-43a4-baf8-f394d72d5ef2.png)
 Website Interface with options for choosing different segmentation method
-![image](https://user-images.githubusercontent.com/74719330/148254645-dad175cc-abf7-4a40-a818-035b7a97f919.png)
+![2](https://user-images.githubusercontent.com/74719330/148256727-6540348c-16b2-4a33-bbe2-faf9c31d321d.png)
 Interface for adding satellite file
 ![image](https://user-images.githubusercontent.com/74719330/148254718-5d078a50-f60a-4a55-ae8c-17fb27db0d98.png)
 Original Image(left) and Enhancement result(right)
