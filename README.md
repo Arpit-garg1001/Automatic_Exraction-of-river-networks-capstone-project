@@ -11,7 +11,9 @@ Segmentation is the process of splitting images into multiple layers, represente
  Pixels having intensity value lower than threshold.
  Pixels having intensity value greater than threshold.
  These 2 groups are now given different values, depending on varioussegmentation types.
- ![image](https://user-images.githubusercontent.com/74719330/148251735-ce64a561-51e0-49dc-bbf9-e3d2cfdfab6c.png)
+ 
+![0](https://user-images.githubusercontent.com/74719330/148257978-31b1d68e-c8a1-4cca-8cc0-599545df2dd1.png)
+
  2. Otsu Thresholding:- Otsu's method, named after Nobuyuki Otsu, is used to perform automatic image thresholding. In the simplest form, the algorithm returns a single intensity threshold that separate pixels into two classes, foreground and background. This threshold is determined by minimizing intra-class intensity variance, or equivalently, by maximizing inter-class variance. Otsu's method is a one-dimensional discrete analog of Fisher's Discriminant Analysis, is related to Jenks optimization method, and is equivalent to a globally optimal k-means performed on the intensity histogram.
 User can select the type of segmentation
 
@@ -20,12 +22,16 @@ Clutter Removal:-Clutter removal is a process in which small unwanted objects in
 System Screenshots:-
 ![1](https://user-images.githubusercontent.com/74719330/148256672-566ed875-967b-43a4-baf8-f394d72d5ef2.png)
 Website Interface with options for choosing different segmentation method
+
 ![2](https://user-images.githubusercontent.com/74719330/148256727-6540348c-16b2-4a33-bbe2-faf9c31d321d.png)
 Interface for adding satellite file
-![image](https://user-images.githubusercontent.com/74719330/148254718-5d078a50-f60a-4a55-ae8c-17fb27db0d98.png)
+
+![3](https://user-images.githubusercontent.com/74719330/148257287-1960b50d-b2de-4b65-ac4f-61ff296e3f9d.png)
 Original Image(left) and Enhancement result(right)
-![image](https://user-images.githubusercontent.com/74719330/148254808-9ee3e0c9-a612-4fbc-a720-88ffa39215f6.png)
+
+![4](https://user-images.githubusercontent.com/74719330/148257303-756b14c2-8c67-4411-8a68-d2c609ebed78.png)
 Histogram Thresholding Segmentation result(left), after clutter removal(right)
-![image](https://user-images.githubusercontent.com/74719330/148254883-0aa51ed1-b2c7-42c5-b675-799128bcf399.png)
+
+![5](https://user-images.githubusercontent.com/74719330/148257368-cee84825-5b1f-455f-90df-acb3dcd3f23c.png)
 Otsu’s Thresholding result(left), image after clutter removal(right)
 
